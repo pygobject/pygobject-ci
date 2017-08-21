@@ -1,0 +1,4 @@
+[submodule "pygobject"]
+	path = pygobject
+	url = https://git.gnome.org/browse/pygobject
+	branch = master

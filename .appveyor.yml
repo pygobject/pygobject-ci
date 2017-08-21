@@ -1,0 +1,23 @@
+environment:
+  matrix:
+    - MSYS2_ARCH: i686
+      MSYSTEM: MINGW32
+      PYTHON: python3
+    - MSYS2_ARCH: i686
+      MSYSTEM: MINGW32
+      PYTHON: python3
+      PYTHONLEGACYWINDOWSFSENCODING: 1
+    - MSYS2_ARCH: i686
+      MSYSTEM: MINGW32
+      PYTHON: python2
+
+init:
+  - set PATH=C:\msys64\%MSYSTEM%\bin;C:\msys64\usr\bin;%PATH%
+
+build_script:
+  - set CHERE_INVOKING=yes
+  - cd %APPVEYOR_BUILD_FOLDER%
+  - bash -xlc "pacman --noconfirm -Suy"
+  - bash -xlc "bash test-msys2.sh"
+
+deploy: off
