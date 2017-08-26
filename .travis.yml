@@ -1,3 +1,7 @@
+cache:
+  directories:
+    - _ci_cache
+
 matrix:
   include:
     - os: linux
