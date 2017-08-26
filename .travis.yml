@@ -1,61 +1,40 @@
+_defaults_linux: &defaults_linux
+  os: linux
+  sudo: required
+  services: docker
+  language: generic
+  dist: trusty
+  cache:
+    directories:
+      - _ci_cache
+
+_defaults_osx: &defaults_osx
+  os: osx
+  osx_image: xcode7.3
+  language: generic
+
 matrix:
   include:
-    - os: linux
-      sudo: required
-      services: docker
-      language: generic
-      dist: trusty
-      env: PYTHON=python2.7 DOCKERFILE="Dockerfile.64"
-    - os: linux
-      sudo: required
-      services: docker
-      language: generic
-      dist: trusty
-      env: PYTHON=python2.7 DOCKERFILE="Dockerfile.32"
-    - os: linux
-      sudo: required
-      services: docker
-      language: generic
-      dist: trusty
-      env: PYTHON=python3.4 DOCKERFILE="Dockerfile.64"
-    - os: linux
-      sudo: required
-      services: docker
-      language: generic
-      dist: trusty
-      env: PYTHON=python3.4 DOCKERFILE="Dockerfile.32"
-    - os: linux
-      sudo: required
-      services: docker
-      language: generic
-      dist: trusty
-      env: PYTHON=python3.5 DOCKERFILE="Dockerfile.64"
-    - os: linux
-      sudo: required
-      services: docker
-      language: generic
-      dist: trusty
-      env: PYTHON=python3.5 DOCKERFILE="Dockerfile.32"
-    - os: linux
-      sudo: required
-      services: docker
-      language: generic
-      dist: trusty
-      env: PYTHON=python3.6 DOCKERFILE="Dockerfile.64"
-    - os: linux
-      sudo: required
-      services: docker
-      language: generic
-      dist: trusty
-      env: PYTHON=python3.6 DOCKERFILE="Dockerfile.32"
-    - os: osx
-      osx_image: xcode7.3
-      language: generic
-      env: PYTHON="python2"
-    - os: osx
-      osx_image: xcode7.3
-      language: generic
-      env: PYTHON="python3"
+    - env: PYTHON=python2.7 DOCKERIMAGE="64"
+      <<: *defaults_linux
+    - env: PYTHON=python2.7 DOCKERIMAGE="32"
+      <<: *defaults_linux
+    - env: PYTHON=python3.4 DOCKERIMAGE="64"
+      <<: *defaults_linux
+    - env: PYTHON=python3.4 DOCKERIMAGE="32"
+      <<: *defaults_linux
+    - env: PYTHON=python3.5 DOCKERIMAGE="64"
+      <<: *defaults_linux
+    - env: PYTHON=python3.5 DOCKERIMAGE="32"
+      <<: *defaults_linux
+    - env: PYTHON=python3.6 DOCKERIMAGE="64"
+      <<: *defaults_linux
+    - env: PYTHON=python3.6 DOCKERIMAGE="32"
+      <<: *defaults_linux
+    - env: PYTHON="python2"
+      <<: *defaults_osx
+    - env: PYTHON="python3"
+      <<: *defaults_osx
 
 script:
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then bash -x test-linux.sh; fi
