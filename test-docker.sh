@@ -11,4 +11,5 @@ cd pygobject
 ./autogen.sh --with-python=python
 make
 xvfb-run -a make check
+LANG=C xvfb-run -a make check
 make check.quality
