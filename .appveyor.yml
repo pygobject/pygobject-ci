@@ -17,7 +17,7 @@ init:
 build_script:
   - set CHERE_INVOKING=yes
   - cd %APPVEYOR_BUILD_FOLDER%
-  - bash -xlc "pacman --noconfirm -Suy"
-  - bash -xlc "bash test-msys2.sh"
+  - bash -lc "pacman --noconfirm -Suy"
+  - bash -lc "bash test-msys2.sh"
 
 deploy: off
