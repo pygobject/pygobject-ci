@@ -2,6 +2,9 @@
 
 set -e
 
+export MSYS2_FC_CACHE_SKIP=1
+export PANGOCAIRO_BACKEND=win32
+
 pacman --noconfirm -Suy
 
 pacman --noconfirm -S --needed \
