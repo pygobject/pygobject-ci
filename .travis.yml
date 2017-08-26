@@ -12,9 +12,6 @@ _defaults_osx: &defaults_osx
   os: osx
   osx_image: xcode7.3
   language: generic
-  cache:
-    directories:
-      - $HOME/Library/Caches/Homebrew
 
 matrix:
   include:
