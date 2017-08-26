@@ -15,6 +15,8 @@ pacman --noconfirm -S --needed \
     git \
     autoconf-archive
 
+pacman -Sc --noconfirm
+
 git submodule update --init --recursive
 (cd pygobject; git checkout master; git pull)
 cd pygobject

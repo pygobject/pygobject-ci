@@ -1,3 +1,5 @@
+cache: C:\msys64\var\cache\pacman\pkg
+
 environment:
   matrix:
     - MSYS2_ARCH: i686
