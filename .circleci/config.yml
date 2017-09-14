@@ -1,0 +1,69 @@
+defaults: &defaults
+  working_directory: ~/workdir
+  machine: true
+  steps:
+    - checkout
+    - run: cp "Dockerfile.$DOCKERIMAGE" _cache_key_file
+    - restore_cache:
+        key: cache-{{ checksum "_cache_key_file" }}
+    - run: bash test-linux.sh
+    - save_cache:
+        key: cache-{{ checksum "_cache_key_file" }}
+        paths:
+          - _ci_cache
+
+version: 2
+jobs:
+  job.py27.64:
+    environment:
+      - PYTHON: "python2.7"
+      - DOCKERIMAGE: "64"
+    <<: *defaults
+  job.py27.32:
+    environment:
+      - PYTHON: "python2.7"
+      - DOCKERIMAGE: "32"
+    <<: *defaults
+  job.py34.64:
+    environment:
+      - PYTHON: "python3.4"
+      - DOCKERIMAGE: "64"
+    <<: *defaults
+  job.py34.32:
+    environment:
+      - PYTHON: "python3.4"
+      - DOCKERIMAGE: "32"
+    <<: *defaults
+  job.py35.64:
+    environment:
+      - PYTHON: "python3.5"
+      - DOCKERIMAGE: "64"
+    <<: *defaults
+  job.py35.32:
+    environment:
+      - PYTHON: "python3.5"
+      - DOCKERIMAGE: "32"
+    <<: *defaults
+  job.py36.64:
+    environment:
+      - PYTHON: "python3.6"
+      - DOCKERIMAGE: "64"
+    <<: *defaults
+  job.py36.32:
+    environment:
+      - PYTHON: "python3.6"
+      - DOCKERIMAGE: "32"
+    <<: *defaults
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - job.py27.64
+      - job.py27.32
+      - job.py34.64
+      - job.py34.32
+      - job.py35.64
+      - job.py35.32
+      - job.py36.64
+      - job.py36.32
