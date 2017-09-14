@@ -7,8 +7,14 @@ pygobject tests of the master branch under Linux/Windows/macOS once per day.
 * https://pygobject.readthedocs.io
 * https://git.gnome.org/browse/pygobject
 
-.. image:: https://travis-ci.org/pygobject/pygobject-ci.svg?branch=master
-    :target: https://travis-ci.org/pygobject/pygobject-ci
+:macOS:
+    .. image:: https://travis-ci.org/pygobject/pygobject-ci.svg?branch=master
+        :target: https://travis-ci.org/pygobject/pygobject-ci
 
-.. image:: https://ci.appveyor.com/api/projects/status/7um5t4rpqdbdly6c/branch/master?svg=true
-    :target: https://ci.appveyor.com/project/lazka/pygobject-ci/branch/master
+:Windows:
+    .. image:: https://ci.appveyor.com/api/projects/status/7um5t4rpqdbdly6c/branch/master?svg=true
+        :target: https://ci.appveyor.com/project/lazka/pygobject-ci/branch/master
+
+:Linux:
+    .. image:: https://circleci.com/gh/pygobject/pygobject-ci.svg?style=svg
+        :target: https://circleci.com/gh/pygobject/pygobject-ci
