@@ -6,7 +6,7 @@ defaults: &defaults
     - run: cp "Dockerfile.$DOCKERIMAGE" _cache_key_file
     - restore_cache:
         key: cache-{{ checksum "_cache_key_file" }}
-    - run: bash test-linux.sh
+    - run: bash -x test-linux.sh
     - save_cache:
         key: cache-{{ checksum "_cache_key_file" }}
         paths:
