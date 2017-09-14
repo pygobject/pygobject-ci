@@ -3,6 +3,8 @@ defaults: &defaults
   machine: true
   steps:
     - checkout
+    - run: pwd
+    - run: ls -l
     - run: cp "Dockerfile.$DOCKERIMAGE" _cache_key_file
     - restore_cache:
         key: cache-{{ checksum "_cache_key_file" }}

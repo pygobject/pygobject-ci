@@ -2,6 +2,9 @@
 
 set -e
 
+pwd
+ls -l
+
 (cd pygobject; git checkout master; git pull)
 
 DOCKERFILE="Dockerfile.$DOCKERIMAGE"
