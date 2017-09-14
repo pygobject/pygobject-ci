@@ -70,7 +70,7 @@ workflows:
       - job.py35.32
       - job.py36.64
       - job.py36.32
-      - build
+      - build:
           requires:
             - job.py27.64
             - job.py27.32
