@@ -2,6 +2,8 @@
 
 set -e
 
+(cd pygobject; git checkout master; git pull)
+
 DOCKERFILE="Dockerfile.$DOCKERIMAGE"
 if [ ! -f "_ci_cache/$DOCKERIMAGE" ]; then
     docker build -t "$DOCKERIMAGE" -f "$DOCKERFILE" .
