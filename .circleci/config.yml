@@ -5,6 +5,7 @@ defaults: &defaults
     - checkout
     - run: pwd
     - run: ls -l
+    - run: git submodule update --init --recursive
     - run: cp "Dockerfile.$DOCKERIMAGE" _cache_key_file
     - restore_cache:
         key: cache-{{ checksum "_cache_key_file" }}
