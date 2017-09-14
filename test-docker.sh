@@ -2,8 +2,10 @@
 
 set -e
 
+pwd
 ls -l
 cd pygobject
+pwd
 ls -l
 #~ virtualenv --python=/usr/bin/$1 /tmp/venv
 #~ source /tmp/venv/bin/activate

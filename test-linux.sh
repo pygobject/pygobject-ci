@@ -4,8 +4,8 @@ set -e
 
 pwd
 ls -l
-
 (cd pygobject; git checkout master; git pull)
+(cd pygobject; pwd; ls -l)
 
 DOCKERFILE="Dockerfile.$DOCKERIMAGE"
 if [ ! -f "_ci_cache/$DOCKERIMAGE" ]; then
