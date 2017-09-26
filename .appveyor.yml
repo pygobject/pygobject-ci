@@ -10,6 +10,12 @@ environment:
     - MSYS2_ARCH: i686
       MSYSTEM: MINGW32
       PYTHON: python2
+    - MSYS2_ARCH: x86_64
+      MSYSTEM: MINGW64
+      PYTHON: python3
+    - MSYS2_ARCH: x86_64
+      MSYSTEM: MINGW64
+      PYTHON: python2
 
 init:
   - set PATH=C:\msys64\%MSYSTEM%\bin;C:\msys64\usr\bin;%PATH%
