@@ -5,9 +5,14 @@ set -e
 export MSYS2_FC_CACHE_SKIP=1
 export PANGOCAIRO_BACKEND=win32
 
-pacman --noconfirm -Suy
 
-pacman --noconfirm -S --needed \
+function pacman_ensure_update {
+    pacman -Sy --needed --noconfirm "$@"
+    pacman -S --needed --noconfirm \
+        $(for i in "$@"; do pactree -u $i; done | sort | uniq)
+}
+
+pacman_ensure_update \
     mingw-w64-$MSYS2_ARCH-$PYTHON-cairo \
     mingw-w64-$MSYS2_ARCH-$PYTHON \
     mingw-w64-$MSYS2_ARCH-$PYTHON-pip \
@@ -17,8 +22,6 @@ pacman --noconfirm -S --needed \
     mingw-w64-$MSYS2_ARCH-gtk3 \
     git \
     autoconf-archive
-
-pacman -Sc --noconfirm
 
 git submodule update --init --recursive
 (cd pygobject; git checkout master; git pull)
