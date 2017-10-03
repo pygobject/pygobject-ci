@@ -59,8 +59,23 @@ jobs:
     <<: *defaults
 
 workflows:
-  version: 2
-  build_and_test:
+  version: scheduled-workflows-mvp
+  pipeline:
+    jobs:
+      - job.py27.64
+      - job.py27.32
+      - job.py34.64
+      - job.py34.32
+      - job.py35.64
+      - job.py35.32
+      - job.py36.64
+      - job.py36.32
+  nightly:
+    triggers:
+      - type: scheduled
+        frequency: "0 0 0 * * ?"
+        branches:
+          - master
     jobs:
       - job.py27.64
       - job.py27.32
