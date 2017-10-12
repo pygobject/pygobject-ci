@@ -26,3 +26,6 @@ cd pygobject
 ./autogen.sh --with-python=$PYTHON
 make
 make check
+if [[ "$PYTHON" == "python3" ]]; then
+    PYTHONLEGACYWINDOWSFSENCODING=1 make check
+fi;
