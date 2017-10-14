@@ -2,7 +2,8 @@
 
 set -e
 
-(cd pygobject; git checkout master; git pull)
+git clone https://git.gnome.org/browse/pygobject pygobject-master
+git clone -b pygobject-3-26 https://git.gnome.org/browse/pygobject pygobject-3-26
 
 DOCKERFILE="Dockerfile.$DOCKERIMAGE"
 if [ ! -f "_ci_cache/$DOCKERIMAGE" ]; then
