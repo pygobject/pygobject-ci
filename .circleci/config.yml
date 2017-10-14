@@ -72,8 +72,8 @@ workflows:
       - job.py36.32
   nightly:
     triggers:
-      - type: scheduled
-        frequency: "0 0 0 * * ?"
+      - type: schedule
+        cron: "0 0 0 * * *"
         branches:
           - master
     jobs:
