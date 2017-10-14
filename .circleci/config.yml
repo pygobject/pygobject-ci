@@ -59,7 +59,7 @@ jobs:
     <<: *defaults
 
 workflows:
-  version: scheduled-workflows-mvp
+  version: 2
   pipeline:
     jobs:
       - job.py27.64
