@@ -20,12 +20,17 @@ pacman --noconfirm -S --needed \
 
 pacman -Sc --noconfirm
 
-git submodule update --init --recursive
-(cd pygobject; git checkout master; git pull)
-cd pygobject
-./autogen.sh --with-python=$PYTHON
-make
-make check
-if [[ "$PYTHON" == "python3" ]]; then
-    PYTHONLEGACYWINDOWSFSENCODING=1 make check
-fi;
+git clone https://git.gnome.org/browse/pygobject pygobject-master
+git clone -b pygobject-3-26 https://git.gnome.org/browse/pygobject pygobject-3-26
+
+for repo in pygobject-master pygobject-3-26;
+do
+    cd "${repo}"
+    ./autogen.sh --with-python=$PYTHON
+    make
+    make check
+    if [[ "$PYTHON" == "python3" ]]; then
+        PYTHONLEGACYWINDOWSFSENCODING=1 make check
+    fi;
+    cd ..
+done
