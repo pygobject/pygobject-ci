@@ -14,7 +14,9 @@ do
     ./autogen.sh --with-python=python
     make
     xvfb-run -a make check
-    LANG=C xvfb-run -a make check
+    if [[ "${repo}" == "pygobject-master" ]]; then
+        LANG=C xvfb-run -a make check
+    fi;
     make check.quality
     cd ..
 done
