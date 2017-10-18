@@ -72,10 +72,12 @@ workflows:
       - job.py36.32
   nightly:
     triggers:
-      - type: schedule
-        cron: "0 22 * * *"
-        branches:
-          - master
+      - schedule:
+          cron: "0 22 * * *"
+          filters:
+            branches:
+              only:
+                - master
     jobs:
       - job.py27.64
       - job.py27.32
