@@ -19,4 +19,4 @@ pygobject tests of the master branch under Linux/Windows/macOS once per day.
     .. image:: https://circleci.com/gh/pygobject/pygobject-ci.svg?style=svg
         :target: https://circleci.com/gh/pygobject/pygobject-ci
 
-.. To trigger a rebuild increase this number: 1
+.. To trigger a rebuild increase this number: 2
