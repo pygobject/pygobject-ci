@@ -22,4 +22,4 @@ pygobject tests of the master branch under Linux/Windows/macOS once per day.
 Edit to trigger a rebuild:
 https://github.com/pygobject/pygobject-ci/edit/master/README.rst
 
-.. To trigger a rebuild increase this number: 5
+.. To trigger a rebuild increase this number: 6
