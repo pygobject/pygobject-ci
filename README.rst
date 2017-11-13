@@ -2,7 +2,7 @@ PyGObject Continuous Integration Repo
 =====================================
 
 Due to the lack of CI integration of the GNOME infrastructure this runs
-pygobject tests of the master branch under Linux/Windows/macOS once per day.
+pygobject tests of the master branch under Linux/Windows/macOS from time to time.
 
 * https://pygobject.readthedocs.io
 * https://git.gnome.org/browse/pygobject
