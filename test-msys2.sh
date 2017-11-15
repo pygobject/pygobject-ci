@@ -20,8 +20,8 @@ pacman --noconfirm -S --needed \
 
 pacman -Sc --noconfirm
 
-git clone https://git.gnome.org/browse/pygobject pygobject-master
-git clone -b pygobject-3-26 https://git.gnome.org/browse/pygobject pygobject-3-26
+git clone --depth 1 https://git.gnome.org/browse/pygobject pygobject-master
+git clone -b pygobject-3-26 --depth 1 https://git.gnome.org/browse/pygobject pygobject-3-26
 
 for repo in pygobject-master pygobject-3-26;
 do
