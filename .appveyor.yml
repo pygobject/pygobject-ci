@@ -19,8 +19,7 @@ init:
 build_script:
   - set CHERE_INVOKING=yes
   - cd %APPVEYOR_BUILD_FOLDER%
-  - bash -lc "sed -i 's/^CheckSpace/#CheckSpace/g' /etc/pacman.conf"
-  - bash -lc "pacman --noconfirm -Suy"
+  - bash -lc "bash test-msys2-pre.sh"
   - bash -lc "bash test-msys2.sh"
 
 deploy: off
