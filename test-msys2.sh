@@ -26,6 +26,9 @@ git clone -b pygobject-3-26 --depth 1 https://git.gnome.org/browse/pygobject pyg
 for repo in pygobject-master pygobject-3-26;
 do
     cd "${repo}"
+    if [[ "$repo" == "pygobject-master" ]]; then
+        "$PYTHON" setup.py distcheck
+    fi;
     ./autogen.sh --with-python=$PYTHON
     make
     make check
