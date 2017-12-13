@@ -31,7 +31,7 @@ do
     echo "" > tests/test_thread.py
 
     if [[ "${repo}" == "pygobject-master" ]]; then
-        # FIXME:
+        echo "FIXME: macos"
         # https://travis-ci.org/pygobject/pygobject-ci/jobs/316025417
         # "$PYTHON" setup.py distcheck
     fi
