@@ -17,10 +17,6 @@ for repo in pygobject-master pygobject-3-26;
 do
     cd "${repo}"
 
-    if [[ "${repo}" == "pygobject-master" ]]; then
-        python setup.py distcheck
-    fi
-
     ./autogen.sh --with-python=python
     make
     xvfb-run -a make check
