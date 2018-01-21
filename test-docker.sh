@@ -6,7 +6,7 @@ virtualenv --python="${PYTHON}" /tmp/venv
 source /tmp/venv/bin/activate
 
 pip install git+https://github.com/pygobject/pycairo.git
-pip install pyflakes pycodestyle
+pip install flake8
 
 export PKG_CONFIG_PATH=/tmp/venv/share/pkgconfig
 export MALLOC_CHECK_=3
