@@ -32,7 +32,7 @@ do
     fi
 
     ./autogen.sh --with-python=$PYTHON
-    make
+    make -j8
     make check
     if [[ "$PYTHON" == "python3" ]]; then
         PYTHONLEGACYWINDOWSFSENCODING=1 make check

@@ -37,7 +37,7 @@ do
     fi
 
     ./autogen.sh --with-python="$PYTHON"
-    make
+    make -j8
     make check
     cd ..
 done
