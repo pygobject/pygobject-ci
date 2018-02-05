@@ -18,7 +18,7 @@ git clone https://git.gnome.org/browse/pygobject pygobject-master
 git clone -b pygobject-3-26 https://git.gnome.org/browse/pygobject pygobject-3-26
 
 $PYTHON -m pip install git+https://github.com/pygobject/pycairo.git
-$PYTHON -m pip install pyflakes pycodestyle
+$PYTHON -m pip install flake8
 
 for repo in pygobject-master pygobject-3-26;
 do
@@ -33,7 +33,7 @@ do
     if [[ "${repo}" == "pygobject-master" ]]; then
         echo "FIXME: macos"
         # https://travis-ci.org/pygobject/pygobject-ci/jobs/316025417
-        # "$PYTHON" setup.py distcheck
+        "$PYTHON" setup.py distcheck
     fi
 
     ./autogen.sh --with-python="$PYTHON"
