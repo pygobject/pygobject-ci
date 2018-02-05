@@ -23,16 +23,16 @@ $PYTHON -m pip install flake8
 for repo in pygobject-master pygobject-3-26;
 do
     cd "${repo}"
-    # FIXME (???)
-    echo "" > tests/test_mainloop.py
-    echo "" > tests/test_overrides_gtk.py
-    echo "" > tests/test_iochannel.py
-    echo "" > tests/test_glib.py
-    echo "" > tests/test_thread.py
+
+    if [[ "${repo}" == "pygobject-3-26" ]]; then
+        echo "" > tests/test_mainloop.py
+        echo "" > tests/test_overrides_gtk.py
+        echo "" > tests/test_iochannel.py
+        echo "" > tests/test_glib.py
+        echo "" > tests/test_thread.py
+    fi
 
     if [[ "${repo}" == "pygobject-master" ]]; then
-        echo "FIXME: macos"
-        # https://travis-ci.org/pygobject/pygobject-ci/jobs/316025417
         "$PYTHON" setup.py distcheck
     fi
 
