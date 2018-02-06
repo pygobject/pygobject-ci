@@ -1,3 +1,5 @@
+image: Visual Studio 2017
+
 environment:
   matrix:
     - MSYS2_ARCH: i686
