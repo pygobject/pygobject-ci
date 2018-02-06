@@ -24,14 +24,6 @@ for repo in pygobject-master pygobject-3-26;
 do
     cd "${repo}"
 
-    if [[ "${repo}" == "pygobject-3-26" ]]; then
-        echo "" > tests/test_mainloop.py
-        echo "" > tests/test_overrides_gtk.py
-        echo "" > tests/test_iochannel.py
-        echo "" > tests/test_glib.py
-        echo "" > tests/test_thread.py
-    fi
-
     if [[ "${repo}" == "pygobject-master" ]]; then
         "$PYTHON" setup.py distcheck
     fi
