@@ -4,4 +4,4 @@ set -e
 
 sed -i 's/^CheckSpace/#CheckSpace/g' /etc/pacman.conf
 
-pacman --noconfirm -Suy
+pacman --noconfirm --sync --refresh --refresh --sysupgrade --sysupgrade
