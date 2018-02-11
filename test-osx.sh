@@ -18,7 +18,7 @@ git clone https://git.gnome.org/browse/pygobject pygobject-master
 git clone -b pygobject-3-26 https://git.gnome.org/browse/pygobject pygobject-3-26
 
 $PYTHON -m pip install git+https://github.com/pygobject/pycairo.git
-$PYTHON -m pip install flake8
+$PYTHON -m pip install flake8 pytest
 
 for repo in pygobject-master pygobject-3-26;
 do

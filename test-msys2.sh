@@ -11,6 +11,7 @@ pacman --noconfirm -S --needed \
     mingw-w64-$MSYS2_ARCH-$PYTHON-cairo \
     mingw-w64-$MSYS2_ARCH-$PYTHON \
     mingw-w64-$MSYS2_ARCH-$PYTHON-pip \
+    mingw-w64-$MSYS2_ARCH-$PYTHON-pytest \
     mingw-w64-$MSYS2_ARCH-gobject-introspection \
     mingw-w64-$MSYS2_ARCH-libffi \
     mingw-w64-$MSYS2_ARCH-glib2 \
