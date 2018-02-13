@@ -2,7 +2,8 @@
 
 set -e
 
-virtualenv --python="${PYTHON}" /tmp/venv
+pip install virtualenv
+virtualenv --python=python /tmp/venv
 source /tmp/venv/bin/activate
 
 pip install git+https://github.com/pygobject/pycairo.git
