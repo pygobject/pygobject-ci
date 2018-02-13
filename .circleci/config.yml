@@ -19,42 +19,42 @@ version: 2
 jobs:
   job.py27.64:
     environment:
-      - PYTHON: "python2.7"
+      - PYENV_VERSION: "2.7.14"
       - DOCKERIMAGE: "64"
     <<: *defaults
   job.py27.32:
     environment:
-      - PYTHON: "python2.7"
+      - PYENV_VERSION: "2.7.14"
       - DOCKERIMAGE: "32"
     <<: *defaults
   job.py34.64:
     environment:
-      - PYTHON: "python3.4"
+      - PYENV_VERSION: "3.4.7"
       - DOCKERIMAGE: "64"
     <<: *defaults
   job.py34.32:
     environment:
-      - PYTHON: "python3.4"
+      - PYENV_VERSION: "3.4.7"
       - DOCKERIMAGE: "32"
     <<: *defaults
   job.py35.64:
     environment:
-      - PYTHON: "python3.5"
+      - PYENV_VERSION: "3.5.5"
       - DOCKERIMAGE: "64"
     <<: *defaults
   job.py35.32:
     environment:
-      - PYTHON: "python3.5"
+      - PYENV_VERSION: "3.5.5"
       - DOCKERIMAGE: "32"
     <<: *defaults
   job.py36.64:
     environment:
-      - PYTHON: "python3.6"
+      - PYENV_VERSION: "3.6.4"
       - DOCKERIMAGE: "64"
     <<: *defaults
   job.py36.32:
     environment:
-      - PYTHON: "python3.6"
+      - PYENV_VERSION: "3.6.4"
       - DOCKERIMAGE: "32"
     <<: *defaults
 

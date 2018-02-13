@@ -7,11 +7,11 @@ git clone -b pygobject-3-26 https://git.gnome.org/browse/pygobject pygobject-3-2
 
 DOCKERFILE="Dockerfile.$DOCKERIMAGE"
 if [ ! -f "_ci_cache/$DOCKERIMAGE" ]; then
-    docker build -t "$DOCKERIMAGE" -f "$DOCKERFILE" .
+    docker build --build-arg HOST_USER_ID="$UID" -t "$DOCKERIMAGE" -f "$DOCKERFILE" .
     mkdir -p _ci_cache;
     docker image save "$DOCKERIMAGE" -o "_ci_cache/$DOCKERIMAGE";
 fi;
 docker image load -i "_ci_cache/$DOCKERIMAGE"
-docker run --volume "$(pwd):/app" --workdir "/app" --tty --detach "$DOCKERIMAGE" bash > container_id
-docker exec "$(cat container_id)" bash -x test-docker.sh $PYTHON
+docker run -e PYENV_VERSION="${PYENV_VERSION}" --volume "$(pwd):/home/user/app" --workdir "/home/user/app" --tty --detach "$DOCKERIMAGE" bash > container_id
+docker exec "$(cat container_id)" bash -x test-docker.sh
 docker stop "$(cat container_id)"
