@@ -16,9 +16,10 @@ export MALLOC_CHECK_=3
 export MALLOC_PERTURB_=$((${RANDOM} % 255 + 1))
 PYVER=$(python -c "import sys; sys.stdout.write(str(sys.version_info[0]))")
 
-for repo in pygobject-master pygobject-3-26;
+for branch in master pygobject-3-26;
 do
-    cd "${repo}"
+    git -b "${branch}"  https://git.gnome.org/browse/pygobject "${branch}"
+    cd "${branch}"
 
     ./autogen.sh --with-python=python
     make -j8
