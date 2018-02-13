@@ -18,7 +18,7 @@ PYVER=$(python -c "import sys; sys.stdout.write(str(sys.version_info[0]))")
 
 for branch in master pygobject-3-26;
 do
-    git -b "${branch}"  https://git.gnome.org/browse/pygobject "${branch}"
+    git clone -b "${branch}" https://git.gnome.org/browse/pygobject "${branch}"
     cd "${branch}"
 
     ./autogen.sh --with-python=python
