@@ -19,8 +19,6 @@ pacman --noconfirm -S --needed \
     git \
     autoconf-archive
 
-pacman -Sc --noconfirm
-
 git clone --depth 1 https://git.gnome.org/browse/pygobject pygobject-master
 git clone -b pygobject-3-26 --depth 1 https://git.gnome.org/browse/pygobject pygobject-3-26
 
