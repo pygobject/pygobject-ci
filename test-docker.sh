@@ -2,12 +2,14 @@
 
 set -e
 
-pip install virtualenv
+python --version
+
+python -m pip install virtualenv
 virtualenv --python=python /tmp/venv
 source /tmp/venv/bin/activate
 
-pip install git+https://github.com/pygobject/pycairo.git
-pip install flake8 pytest
+python -m pip install git+https://github.com/pygobject/pycairo.git
+python -m pip install flake8 pytest
 
 export PKG_CONFIG_PATH=/tmp/venv/lib/pkgconfig
 export MALLOC_CHECK_=3
