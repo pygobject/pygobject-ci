@@ -14,19 +14,15 @@ brew install libffi glib gobject-introspection cairo autoconf-archive gtk+3
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig"
 
-git clone https://git.gnome.org/browse/pygobject pygobject-master
-git clone -b pygobject-3-26 https://git.gnome.org/browse/pygobject pygobject-3-26
-
 $PYTHON -m pip install git+https://github.com/pygobject/pycairo.git
-$PYTHON -m pip install flake8 pytest
+$PYTHON -m pip install flake8 pytest pytest-faulthandler
 
-for repo in pygobject-master pygobject-3-26;
+for branch in master;
 do
-    cd "${repo}"
+    git clone -b "${branch}" --depth 1 https://git.gnome.org/browse/pygobject "${branch}"
+    cd "${branch}"
 
-    if [[ "${repo}" == "pygobject-master" ]]; then
-        "$PYTHON" setup.py distcheck
-    fi
+    "$PYTHON" setup.py distcheck
 
     ./autogen.sh --with-python="$PYTHON"
     make -j8

@@ -16,20 +16,18 @@ export MALLOC_CHECK_=3
 export MALLOC_PERTURB_=$((${RANDOM} % 255 + 1))
 PYVER=$(python -c "import sys; sys.stdout.write(str(sys.version_info[0]))")
 
-for branch in master pygobject-3-26;
+for branch in master;
 do
-    git clone -b "${branch}" https://git.gnome.org/browse/pygobject "${branch}"
+    git clone -b "${branch}" --depth 1 https://git.gnome.org/browse/pygobject "${branch}"
     cd "${branch}"
 
     ./autogen.sh --with-python=python
     make -j8
     xvfb-run -a make check
-    if [[ "${repo}" == "pygobject-master" ]]; then
-        LANG=C xvfb-run -a make check
-    fi;
+    LANG=C xvfb-run -a make check
     make check.quality
 
-    if [[ "${PYVER}" == "2" ]] && [[ "${repo}" == "pygobject-master" ]]; then
+    if [[ "${PYVER}" == "2" ]]; then
         python -m pip install sphinx sphinx_rtd_theme
         python -m sphinx -W -a -E -b html -n docs docs/_build
     fi;

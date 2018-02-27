@@ -19,18 +19,14 @@ pacman --noconfirm -S --needed \
     git \
     autoconf-archive
 
-git clone --depth 1 https://git.gnome.org/browse/pygobject pygobject-master
-git clone -b pygobject-3-26 --depth 1 https://git.gnome.org/browse/pygobject pygobject-3-26
-
-for repo in pygobject-master pygobject-3-26;
+for branch in master;
 do
-    cd "${repo}"
+    git clone -b "${branch}" --depth 1 https://git.gnome.org/browse/pygobject "${branch}"
+    cd "${branch}"
 
-    if [[ "${repo}" == "pygobject-master" ]]; then
-        "$PYTHON" setup.py distcheck
-    fi
+    "$PYTHON" setup.py distcheck
 
-    ./autogen.sh --with-python=$PYTHON
+    ./autogen.sh --with-python="$PYTHON"
     make -j8
     make check
     if [[ "$PYTHON" == "python3" ]]; then
