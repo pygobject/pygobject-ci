@@ -21,7 +21,7 @@ $PYTHON -m pip install flake8 pytest pytest-faulthandler
 
 for branch in master;
 do
-    git clone -b "${branch}" --depth 1 https://git.gnome.org/browse/pygobject "${branch}"
+    git clone -b "${branch}" --depth 1 https://gitlab.gnome.org/GNOME/pygobject.git"${branch}"
     cd "${branch}"
 
     "$PYTHON" setup.py distcheck
