@@ -4,9 +4,10 @@ set -e
 
 brew update
 if [ "$PYTHON" == "python2" ]; then
-    brew install python || brew upgrade python
+    brew install python@2 || brew upgrade python@2
+    export PATH="/usr/local/opt/python@2/libexec/bin:$PATH"
 else
-    brew install python3 || brew upgrade python3
+    brew install python || brew upgrade python
 fi
 brew outdated "pkg-config" || brew upgrade "pkg-config"
 brew install libffi glib gobject-introspection cairo autoconf-archive gtk+3
@@ -14,6 +15,7 @@ brew install libffi glib gobject-introspection cairo autoconf-archive gtk+3
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig"
 
+$PYTHON --version
 $PYTHON -m pip install git+https://github.com/pygobject/pycairo.git
 $PYTHON -m pip install flake8 pytest pytest-faulthandler
 
