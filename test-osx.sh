@@ -10,6 +10,9 @@ export PATH="/usr/local/opt/python@2/libexec/bin:$PATH"
 brew outdated "pkg-config" || brew upgrade "pkg-config"
 brew install libffi glib gobject-introspection cairo autoconf-archive gtk+3
 
+# https://bugzilla.gnome.org/show_bug.cgi?id=780238#c4
+export ARCHFLAGS="-arch x86_64"
+
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig"
 
