@@ -4,10 +4,10 @@ set -e
 
 brew update
 if [ "$PYTHON" == "python2" ]; then
-    brew install python@2 || brew upgrade python@2
+    brew install python@2 || brew upgrade python@2 || true
     export PATH="/usr/local/opt/python@2/libexec/bin:$PATH"
 else
-    brew install python || brew upgrade python
+    brew install python || brew upgrade python || true
 fi
 brew outdated "pkg-config" || brew upgrade "pkg-config"
 brew install libffi glib gobject-introspection cairo autoconf-archive gtk+3
