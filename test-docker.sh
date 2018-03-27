@@ -21,11 +21,9 @@ do
     git clone -b "${branch}" --depth 1 https://gitlab.gnome.org/GNOME/pygobject.git "${branch}"
     cd "${branch}"
 
-    ./autogen.sh --with-python=python
-    make -j8
-    xvfb-run -a make check
-    LANG=C xvfb-run -a make check
-    make check.quality
+    xvfb-run -a python setup.py test
+    LANG=C xvfb-run -a python setup.py test
+    python -m flake8
 
     if [[ "${PYVER}" == "2" ]]; then
         python -m pip install sphinx sphinx_rtd_theme

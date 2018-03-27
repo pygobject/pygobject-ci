@@ -16,8 +16,7 @@ pacman --noconfirm -S --needed \
     mingw-w64-$MSYS2_ARCH-libffi \
     mingw-w64-$MSYS2_ARCH-glib2 \
     mingw-w64-$MSYS2_ARCH-gtk3 \
-    git \
-    autoconf-archive
+    git
 
 for branch in master;
 do
@@ -26,11 +25,9 @@ do
 
     "$PYTHON" setup.py distcheck
 
-    ./autogen.sh --with-python="$PYTHON"
-    make -j8
-    make check
     if [[ "$PYTHON" == "python3" ]]; then
-        PYTHONLEGACYWINDOWSFSENCODING=1 make check
+        PYTHONLEGACYWINDOWSFSENCODING=1 "$PYTHON" setup.py test
     fi;
+
     cd ..
 done
