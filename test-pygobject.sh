@@ -20,12 +20,7 @@ $PYTHON --version
 $PYTHON -m pip install git+https://github.com/pygobject/pycairo.git
 $PYTHON -m pip install flake8 pytest pytest-faulthandler
 
-for branch in master;
-do
-    git clone -b "${branch}" --depth 1 https://gitlab.gnome.org/GNOME/pygobject.git "${branch}"
-    cd "${branch}"
+git clone --depth 1 https://gitlab.gnome.org/GNOME/pygobject.git
+cd pygobject
 
-    "$PYTHON" setup.py distcheck
-
-    cd ..
-done
+"$PYTHON" setup.py distcheck
