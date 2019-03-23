@@ -5,6 +5,8 @@ _defaults_osx: &defaults_osx
 
 matrix:
   include:
+    - env: SCRIPT="test-gi.sh"
+      <<: *defaults_osx
     - env: PYTHON="python2" SCRIPT="test-pygobject.sh"
       <<: *defaults_osx
     - env: PYTHON="python3" SCRIPT="test-pygobject.sh"
