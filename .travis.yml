@@ -1,14 +1,14 @@
 _defaults_osx: &defaults_osx
   os: osx
-  osx_image: xcode8.3
+  osx_image: xcode9.4
   language: generic
 
 matrix:
   include:
-    - env: PYTHON="python2"
+    - env: PYTHON="python2" SCRIPT="test-pygobject.sh"
       <<: *defaults_osx
-    - env: PYTHON="python3"
+    - env: PYTHON="python3" SCRIPT="test-pygobject.sh"
       <<: *defaults_osx
 
 script:
-  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then bash -x test-osx.sh; fi
+  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then bash -x $SCRIPT; fi
