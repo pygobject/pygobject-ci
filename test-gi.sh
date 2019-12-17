@@ -13,6 +13,11 @@ for package in python libffi glib cairo meson ninja bison flex; do
 done
 
 export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig"
+export PATH="/usr/local/opt/bison/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/bison/lib $LDFLAGS"
+export PATH="/usr/local/opt/flex/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/flex/lib $LDFLAGS"
+export CPPFLAGS="-I/usr/local/opt/flex/include $CPPFLAGS"
 
 git clone --depth 1 https://gitlab.gnome.org/GNOME/gobject-introspection.git
 cd gobject-introspection
