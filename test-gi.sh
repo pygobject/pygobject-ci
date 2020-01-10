@@ -8,6 +8,7 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 
 brew update
 brew remove --ignore-dependencies gdal numpy postgis
+brew unlink python@2 || true;
 for package in python libffi glib cairo meson ninja bison flex; do
     brew install "$package" || brew upgrade "$package";
 done

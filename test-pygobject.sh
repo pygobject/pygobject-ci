@@ -8,12 +8,21 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 
 brew update
 brew remove --ignore-dependencies gdal numpy postgis
-for package in python python@2 libffi glib cairo gobject-introspection gtk+3; do
+
+if [ "$PYTHON" == "python2" ]; then
+    brew unlink python || true;
+    brew install "python@2" || brew upgrade "python@2";
+    export PATH="/usr/local/opt/python@2/libexec/bin:$PATH"
+else
+    brew unlink python@2 || true;
+    brew install "python" || brew upgrade "python";
+    export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+fi
+
+for package in libffi glib cairo gobject-introspection gtk+3; do
     brew install "$package" || brew upgrade "$package";
 done
 
-export PATH="/usr/local/opt/python@2/libexec/bin:$PATH"
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig"
 
 # https://bugzilla.gnome.org/show_bug.cgi?id=780238#c4
