@@ -23,7 +23,7 @@ export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig"
 export ARCHFLAGS="-arch x86_64"
 
 python3 --version
-python3 -m pip pycairo install flake8 pytest pytest-faulthandler
+python3 -m pip install pycairo flake8 pytest pytest-faulthandler
 
 git clone --depth 1 https://gitlab.gnome.org/GNOME/pygobject.git
 cd pygobject
